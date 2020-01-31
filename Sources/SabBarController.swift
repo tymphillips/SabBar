@@ -95,7 +95,7 @@ open class SabBarController: UITabBarController, UITableViewDataSource, UITableV
     /**
      Access the navigation bar, if enabled, to set its tint and behavior.
      */
-    open let navigationBar = UINavigationBar()
+    public let navigationBar = UINavigationBar()
     
     /**
      Specify a background color behind the sidebar, this will affect its color 
@@ -508,7 +508,7 @@ open class SabBarController: UITabBarController, UITableViewDataSource, UITableV
         border.backgroundColor = UIColor.lightGray
         border.translatesAutoresizingMaskIntoConstraints = false
         border.accessibilityIdentifier = "Border"
-        view.sendSubview(toBack: border)
+        view.sendSubviewToBack(border)
         
         sidebar.addSubview(border)
         sidebar.translatesAutoresizingMaskIntoConstraints = false
@@ -518,7 +518,7 @@ open class SabBarController: UITabBarController, UITableViewDataSource, UITableV
         
         if hasNavigation {
             view.addConstraint(NSLayoutConstraint(item: sidebar, attribute: .top, relatedBy: .equal, toItem: navigationBar, attribute: .bottom, multiplier: 1, constant: 0))
-            view.bringSubview(toFront: navigationBar)
+            view.bringSubviewToFront(navigationBar)
         } else {
             view.addConstraint(NSLayoutConstraint(item: sidebar, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0))
         }
